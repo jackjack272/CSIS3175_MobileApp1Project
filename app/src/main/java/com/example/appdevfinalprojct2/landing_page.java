@@ -14,7 +14,7 @@ public class landing_page extends AppCompatActivity {
     Spinner spinner;
 
     private static String TAG = landing_page.class.getSimpleName();
-
+    private Boolean changePage=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,26 +36,26 @@ public class landing_page extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(getApplicationContext(),
                 R.array.navigation, android.R.layout.simple_spinner_dropdown_item );
         spinner.setAdapter(adapter);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.v(TAG, "intent is "+parent.getSelectedItem());
 
-                Intent intent=null;
-                String destination= parent.getSelectedItem().toString();
 
-                if(destination.equalsIgnoreCase("Landing Page")){
-                    intent= new Intent(landing_page.this, landing_page.class);
-                }else if(destination.equalsIgnoreCase("User Basic Info")){
-                    intent= new Intent(landing_page.this, user_basicinfo.class);
+                if(changePage==true){
+                    Intent intent=null;
+                    String destination= parent.getSelectedItem().toString();
+
+                    if(destination.equalsIgnoreCase("Landing Page")){
+                        intent= new Intent(landing_page.this, landing_page.class);
+                    }else if(destination.equalsIgnoreCase("User Basic Info")){
+                        intent= new Intent(landing_page.this, user_basicinfo.class);
+                    }
+
+                    startActivity(intent);
                 }
-
-
-
-
-                startActivity(intent);
-
-                //        Log.v(TAG, "intent is "+spinner.getSelectedItem());
+                changePage=true;
 
             }@Override public void onNothingSelected(AdapterView<?> parent) {}
         });
