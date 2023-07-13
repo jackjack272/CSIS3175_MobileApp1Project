@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class Workout_Recycler_Adapater extends RecyclerView.Adapter<Workout_Recycler_Adapater.ViewHolder> {
+public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHolder> {
 
 
     String[] workout_title={
@@ -66,7 +66,7 @@ public class Workout_Recycler_Adapater extends RecyclerView.Adapter<Workout_Recy
 
     @NonNull
     @Override
-    public Workout_Recycler_Adapater.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public WorkoutAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.workout_card, parent, false);
         ViewHolder viewHolder= new ViewHolder(view);
@@ -75,7 +75,7 @@ public class Workout_Recycler_Adapater extends RecyclerView.Adapter<Workout_Recy
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Workout_Recycler_Adapater.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull WorkoutAdapter.ViewHolder holder, int position) {
         holder.title.setText(workout_title[position]);
         holder.subtext.setText(workout_title[position]);
         holder.image.setImageResource(workout_image[position]);
