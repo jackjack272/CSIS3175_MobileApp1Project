@@ -1,3 +1,59 @@
 <resources>
     <string name="app_name">AppDevFinalProjct2</string>
+
+
+    <string-array name="navigation">
+        <item>Landing Page</item>
+        <item>User Basic Info</item>
+        <item>BMI Calculator</item>
+        <item>Food stuff </item>
+        <item>Workout</item>
+    </string-array>
+
+
+    <!--            Landing Page                 -->
+    <string name="insperation">Dont settle </string>
+
+
+    <!--            Basic User Info                 -->
+    <string name="details">Give me your Deets </string>
+    <string name="enterName">Enter Your Name</string>
+    <string name="enterEmail">Enter Your Email</string>
+    <string name="getDob">Enter your age (23)</string>
+    <string name="putonweight">Put On Weight</string>
+    <string name="takeweightoff">Take Weight Off</string>
+
+    <string name="nightMode">Night Mode</string>
+    <string name="dayMode">Day Mode</string>
+
+    <!--            User BMI        -->
+    <string name="letsGetBMi">Lets get your BMI</string>
+    <string name="hieghtinfeet">Enter your height in feet</string>
+    <string name="hight_hint">6 \' 2</string>
+    <string name="weightinlbs">Enter your weight in lbs</string>
+    <string name="weigt_lable">190</string>
+    <string name="calcWeight">Calculate BMI</string>
+
+    <!--            Work Out Card body area        -->
+    <string-array name="workout_body_parts">
+        <item>Arms Of Steel</item>
+
+    </string-array>
+
+    <!--            Work Out Card subtext        -->
+    <string-array name="workout_subtext">
+        <item>Killer workout to create well defined abdominals </item>
+
+    </string-array>
+    <string name="title_activity_chest_and_arms">ChestAndArms</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
 </resources>

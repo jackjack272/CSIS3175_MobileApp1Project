@@ -14,8 +14,10 @@
         <activity
             android:name=".landing_page"
             android:exported="false" />
+
+
         <activity
-            android:name=".MainActivity"
+            android:name=".user_basicinfo"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
