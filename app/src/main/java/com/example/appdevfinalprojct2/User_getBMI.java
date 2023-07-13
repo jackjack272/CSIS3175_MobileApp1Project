@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class user_basicinfo extends AppCompatActivity {
+public class User_getBMI extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_basicinfo);
+        setContentView(R.layout.activity_user_get_bmi);
+
+
+
     }
 }

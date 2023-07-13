@@ -11,25 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDevFinalProjct2"
         tools:targetApi="31">
-
         <activity
-            android:name=".landing_page"
-            android:exported="true" >
-
+            android:name=".User_getBMI"
+            android:exported="false" />
+        <activity
+            android:name=".Landing_Page"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-
-
         <activity
-            android:name=".user_basicinfo"
+            android:name=".User_BasicInfo"
             android:exported="false" />
-
     </application>
 
 </manifest>

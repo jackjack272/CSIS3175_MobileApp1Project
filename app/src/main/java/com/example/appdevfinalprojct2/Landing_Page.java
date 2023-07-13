@@ -10,10 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class landing_page extends AppCompatActivity {
+public class Landing_Page extends AppCompatActivity {
     Spinner spinner;
 
-    private static String TAG = landing_page.class.getSimpleName();
+    private static String TAG = Landing_Page.class.getSimpleName();
     private Boolean changePage=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +48,14 @@ public class landing_page extends AppCompatActivity {
                     String destination= parent.getSelectedItem().toString();
 
                     if(destination.equalsIgnoreCase("Landing Page")){
-                        intent= new Intent(landing_page.this, landing_page.class);
-                    }else if(destination.equalsIgnoreCase("User Basic Info")){
-                        intent= new Intent(landing_page.this, user_basicinfo.class);
+                        intent= new Intent(Landing_Page.this, Landing_Page.class);
                     }
-
+                    else if(destination.equalsIgnoreCase("User Basic Info")){
+                        intent= new Intent(Landing_Page.this, User_BasicInfo.class);
+                    }
+                    else if(destination.equalsIgnoreCase("BMI Calculator")){
+                        intent= new Intent(Landing_Page.this, User_getBMI.class);
+                    }
                     startActivity(intent);
                 }
                 changePage=true;
