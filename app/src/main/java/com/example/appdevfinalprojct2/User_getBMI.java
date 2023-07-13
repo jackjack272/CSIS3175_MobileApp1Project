@@ -9,7 +9,7 @@ public class User_getBMI extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_get_bmi);
+        setContentView(R.layout.user_get_bmi);
 
 
 
