@@ -1,6 +1,7 @@
 package com.example.appdevfinalprojct2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +47,15 @@ public class RecipeeAdapter extends RecyclerView.Adapter<RecipeeAdapter.ViewHold
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    Snackbar.make(v, "click detected on item" + position,
-                                    Snackbar.LENGTH_LONG).setAction("Action", null)
-                            .show();
+//                    Snackbar.make(v, "click detected on item" + position,
+//                                    Snackbar.LENGTH_LONG).setAction("Action", null)
+//                            .show();
+//
+//                    Intent intent= new Intent(RecipeeAdapter.this , Landing_Page.class);
+
+
+
+
                 }});
         }
         

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -27,15 +28,26 @@ public class RecipeeDisplay extends AppCompatActivity {
     // api call components
 
 
-    // call from the bundle and pass it to the string in the get Recipe
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipee_destination);
+
+
+        // call from the bundle and pass it to the string in the get Recipe
+
+        Intent intent= getIntent();
+        Bundle bundle= intent.getExtras();
+
+
+
+        String restriction, culture, ing1, ing2, ing3, ing4;
+        restriction= bundle.getString("restriction","vegetarian");
+        culture=bundle.getString("culture","american");
+        ing1=bundle.getString("ing1","Carrot");
+        ing2=bundle.getString("ing2","Celery");
+        ing3=bundle.getString("ing3","Noodle");
+        ing4=bundle.getString("ing4","Butter");
 
 
         // on click send to another page with intent and do api call and display on that page.
@@ -45,15 +57,24 @@ public class RecipeeDisplay extends AppCompatActivity {
 
         requestQueue = VollySingolton.getInstance(this).getRequestQueue();
         dishArrayList = new ArrayList<>();
-        getRecipee();
+
+        // see what happens if the values sent in are null/ ""
+        getRecipee(culture, restriction, 10, 800, ing1, ing2, ing3, ing4  );
     }
 
-    private void getRecipee() {
-//                String cusineStyle, String diet, int numDishes, int maxCalories,
-//                             String ingrident1, String ingrident2,  String ingrident3  ){
+    private void getRecipee( //) {
+                String cusineStyle, String diet, int numDishes, int maxCalories,
+                             String ingrident1, String ingrident2,  String ingrident3, String ingrident4  ){
 
-        String url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=3e14d423c5b54657a99a4fa84e8d3905" +
-                "&cuisine=italian&diet=vegetarian&query=rice&maxCalories=2400&number=3&sourceUrl";
+        String url = "https://api.spoonacular.com/recipes/complexSearch?" +
+                "apiKey=3e14d423c5b54657a99a4fa84e8d3905" +
+                "&cuisine="+cusineStyle+"&diet="+diet+"" +
+                "&query="+ingrident1+"" +
+                "&query="+ingrident2+"" +
+                "&query="+ingrident3+"" +
+                "&query="+ingrident4+"" +
+                "&maxCalories="+maxCalories+"" +
+                "&number="+numDishes;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
