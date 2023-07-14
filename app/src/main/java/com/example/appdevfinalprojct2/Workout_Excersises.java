@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 
 public class Workout_Excersises extends AppCompatActivity {
 
@@ -19,11 +18,19 @@ public class Workout_Excersises extends AppCompatActivity {
         setContentView(R.layout.workout_recycler);
 
 
+
+
+        //switch. on listen
+
+
+        //slim adapter
+
+        // bulk adapter
         recyclerView=findViewById(R.id.recycler_workout);
         layoutManager= new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter= new Workout_Recycler_Adapater();
+        adapter= new WorkoutAdapter();
         recyclerView.setAdapter(adapter);
 
     }

@@ -13,13 +13,14 @@ import android.widget.Spinner;
 public class Landing_Page extends AppCompatActivity {
     Spinner spinner;
 
-    private static String TAG = Landing_Page.class.getSimpleName();
+    private static final String TAG = Landing_Page.class.getSimpleName();
     private Boolean changePage=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
 
+        Log.e(TAG, "landing page. ");
 
 
 
@@ -43,7 +44,7 @@ public class Landing_Page extends AppCompatActivity {
                 Log.v(TAG, "intent is "+parent.getSelectedItem());
 
 
-                if(changePage==true){
+                if(changePage){
                     Intent intent=null;
                     String destination= parent.getSelectedItem().toString();
 
@@ -56,8 +57,10 @@ public class Landing_Page extends AppCompatActivity {
                     else if(destination.equalsIgnoreCase("BMI Calculator")){
                         intent= new Intent(Landing_Page.this, User_getBMI.class);
                     }else if(destination.equalsIgnoreCase("Workout")){
-
                         intent= new Intent(Landing_Page.this, Workout_Excersises.class);
+                    }
+                    else if(destination.equalsIgnoreCase("Food stuff")){
+                            intent= new Intent(Landing_Page.this, Get_Recipies.class);
                     }
 
                     startActivity(intent);

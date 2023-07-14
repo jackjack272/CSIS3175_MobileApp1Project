@@ -11,8 +11,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_workout"
-        android:layout_width="414dp"
-        android:layout_height="389dp"
+        android:layout_width="413dp"
+        android:layout_height="516dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
