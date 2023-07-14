@@ -14,6 +14,29 @@
     <!--            Landing Page                 -->
     <string name="insperation">Dont settle </string>
 
+    <!-- Log in page    -->
+
+
+
+
+    <!--    Food Stuff -->
+    <string name="recipe">lets get you a yummy meal!</string>
+    <string name="chef">chef it up!</string>
+    <string name="restrictions">Dou have dietary restirctions?</string>
+        <string name="vegetarinan">Vegetarian</string>
+
+    <string name="style">Any Country\'s Style of cookies?</string>
+        <string name="country">Mexican</string>
+
+        <!--        ingredients-->
+    <string name="ingredients">What ingredients do you want to use?</string>
+    <string name="ingredient1">Carrots</string>
+    <string name="ingredient2">Butter</string>
+    <string name="ingredient3">Noodles</string>
+    <string name="ingredient4">Cellery</string>
+
+
+
 
     <!--            Basic User Info                 -->
     <string name="details">Give me your Deets </string>
