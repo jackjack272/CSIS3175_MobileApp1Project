@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 
@@ -39,6 +40,16 @@ public class RecipeeAdapter extends RecyclerView.Adapter<RecipeeAdapter.ViewHold
             imageView= view.findViewById(R.id.food_image);
             title=view.findViewById(R.id.food_title);
             calories= view.findViewById(R.id.food_calories);
+
+            // set on click listender to send to next view with api request to details on the recipee
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Snackbar.make(v, "click detected on item" + position,
+                                    Snackbar.LENGTH_LONG).setAction("Action", null)
+                            .show();
+                }});
         }
         
     }
