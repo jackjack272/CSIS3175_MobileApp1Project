@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+<!-- Registration   -->
     <dimen name="register_textbox_size">20sp</dimen>
     <dimen name="register_textbo">20dp</dimen>
     <dimen name="fields">100dp</dimen>
 
+<!--    Navigation -->
+    <dimen name="nav_width">330dp</dimen>
+    <dimen name="nav_height">70dp</dimen>
 
+
+<!--    UserBasicInfo-->
+    <dimen name="deedsSize">30sp</dimen>
+    <dimen name="takeWeight">15sp</dimen>
+
+<!--   Converter size -->
+    <dimen name="imperial">25dp</dimen>
 </resources>

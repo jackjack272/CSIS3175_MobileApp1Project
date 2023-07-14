@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public class Landing_Page extends AppCompatActivity {
-    Spinner spinner;
+    private Spinner spinner;
 
     private static final String TAG = Landing_Page.class.getSimpleName();
     private Boolean changePage=false;
@@ -37,7 +37,6 @@ public class Landing_Page extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(getApplicationContext(),
                 R.array.navigation, android.R.layout.simple_spinner_dropdown_item );
         spinner.setAdapter(adapter);
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -69,8 +68,6 @@ public class Landing_Page extends AppCompatActivity {
 
             }@Override public void onNothingSelected(AdapterView<?> parent) {}
         });
-
-
 
     }
 }

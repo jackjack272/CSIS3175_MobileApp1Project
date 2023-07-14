@@ -59,12 +59,17 @@ public class User_Registration_login extends AppCompatActivity {
             }
         });
 
-
         // button click
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // see if they are logging in or registering....
+                    // logining in need to get the info and see if credentials match
+
+
+                    //registrations is below
+
                 // validate for empty/null values in the fields.
                 String _email, _password, _name, err_msg="";
                 Boolean logging_in=button.getText().toString().equalsIgnoreCase("log in");
@@ -104,8 +109,6 @@ public class User_Registration_login extends AppCompatActivity {
                     }
                 }
 
-
-
                 // display error messages and return else
                 if (err_msg != ""){
                     error_box.setVisibility(View.VISIBLE);
@@ -116,7 +119,7 @@ public class User_Registration_login extends AppCompatActivity {
                 }
 
                 // save the values in shared preferences.
-                SharedPreferences sharedPreferences= getSharedPreferences("user_details", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences= getSharedPreferences("user_info", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor= sharedPreferences.edit();
 
                 editor.putString("user_email", _email);

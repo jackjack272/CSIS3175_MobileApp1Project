@@ -52,15 +52,23 @@
     <string name="putonweight">Put On Weight</string>
     <string name="takeweightoff">Take Weight Off</string>
 
+    <string name="hieghtinfeet">Enter your height in feet (6\' 1) </string>
+    <string name="hight_hint">6 \' 1</string>
+
+    <string name="weightinlbs">Enter your weight in lbs(170) </string>
+    <string name="weigt_lable">190</string>
+
+            <!-- Imperial to Metric converter    -->
+    <string name="imperial">Imperial</string>
+    <string name="metric">Metric</string>
+
+
+
     <string name="nightMode">Night Mode</string>
     <string name="dayMode">Day Mode</string>
 
     <!--            User BMI        -->
     <string name="letsGetBMi">Lets get your BMI</string>
-    <string name="hieghtinfeet">Enter your height in feet</string>
-    <string name="hight_hint">6 \' 2</string>
-    <string name="weightinlbs">Enter your weight in lbs</string>
-    <string name="weigt_lable">190</string>
     <string name="calcWeight">Calculate BMI</string>
 
     <!--            Work Out Card body area        -->
