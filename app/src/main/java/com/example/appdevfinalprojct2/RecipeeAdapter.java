@@ -50,9 +50,17 @@ public class RecipeeAdapter extends RecyclerView.Adapter<RecipeeAdapter.ViewHold
 //                    Snackbar.make(v, "click detected on item" + position,
 //                                    Snackbar.LENGTH_LONG).setAction("Action", null)
 //                            .show();
-//
-//                    Intent intent= new Intent(RecipeeAdapter.this , Landing_Page.class);
+                    //https://stackoverflow.com/questions/28767413/how-to-open-a-different-activity-on-recyclerview-item-onclick
 
+
+                    if(position == 0 ){
+                        // take the dishArrayList[position].getId();
+                        // intent( bundle.putExtras(id ))
+                        // on that page call the api
+                        return;
+
+                    }
+                    Intent intent= new Intent(context , Landing_Page.class);
 
 
 

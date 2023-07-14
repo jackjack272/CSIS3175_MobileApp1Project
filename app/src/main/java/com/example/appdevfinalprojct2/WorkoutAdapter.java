@@ -1,5 +1,8 @@
 package com.example.appdevfinalprojct2;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,17 +21,14 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
     String[] workout_title={
             "i work ",
             "i work ",
-            "i work ",
     };
 
     String[] workout_subtext={
             "i work too",
             "i work too",
-            "i work too",
     };
 
     int[] workout_image={
-            R.drawable.sculpting,
             R.drawable.sculpting,
             R.drawable.sculpting,
     };
@@ -53,11 +53,24 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
                     int position = getAdapterPosition();
 
                     // if position 1 take me to this work out....
+                    Intent intent= null;
+                    Bundle bundle=new Bundle();
 
 
-                    Snackbar.make(v, "click detected on item" + position,
-                                    Snackbar.LENGTH_LONG).setAction("Action", null)
-                            .show();
+                    if(position == 0){
+                        intent= new Intent(v.getContext(),Workout_ShowExersises.class );
+                        bundle.putInt("position",position);
+                        intent.putExtras(bundle);
+                    }
+
+                    v.getContext().startActivity(intent);
+    //https://stackoverflow.com/questions/28528009/start-new-intent-from-recyclerviewadapter
+
+
+
+//                    Snackbar.make(v, "click detected on item" + position,
+//                                    Snackbar.LENGTH_LONG).setAction("Action", null)
+//                            .show();
                 }
             });
 
@@ -68,7 +81,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
     @Override
     public WorkoutAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.workout_card, parent, false);
+                .inflate(R.layout.workout_card_musclegroup, parent, false);
         ViewHolder viewHolder= new ViewHolder(view);
 
         return viewHolder;

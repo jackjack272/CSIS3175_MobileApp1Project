@@ -6,56 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".User_BasicInfo">
 
+
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="56dp"
         android:text="@string/putonweight"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
-
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="405dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="103dp"
         android:layout_height="25dp"
-        android:layout_marginEnd="96dp"
         android:text="@string/nightMode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/switch2" />
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="463dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="96dp"
         android:text="@string/takeweightoff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/switch1" />
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="405dp" />
 
     <Switch
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="72dp"
         android:text="@string/dayMode"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="463dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="331dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="416dp"
+        android:layout_width="349dp"
+        android:layout_height="168dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2">
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="168dp">
 
         <TextView
             android:id="@+id/textView6"
@@ -93,12 +83,7 @@
         android:id="@+id/spinner2"
         android:layout_width="258dp"
         android:layout_height="75dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="65dp"
         android:entries="@array/navigation"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="28dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

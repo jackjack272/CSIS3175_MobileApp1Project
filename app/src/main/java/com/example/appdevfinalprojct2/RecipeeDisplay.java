@@ -76,6 +76,8 @@ public class RecipeeDisplay extends AppCompatActivity {
                 "&maxCalories="+maxCalories+"" +
                 "&number="+numDishes;
 
+        url=""; // dont make the api calls
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
