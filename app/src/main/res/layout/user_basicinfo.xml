@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".User_BasicInfo">
 
+    <include
+        layout="@layout/navigation"
+        android:layout_width="413dp"
+        android:layout_height="85dp" />
 
     <Switch
         android:id="@+id/switch1"
@@ -79,11 +83,12 @@
 
     </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="258dp"
-        android:layout_height="75dp"
-        android:entries="@array/navigation"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="28dp" />
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="log out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="518dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

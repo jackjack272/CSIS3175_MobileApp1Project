@@ -14,7 +14,17 @@
     <!--            Landing Page                 -->
     <string name="insperation">Dont settle </string>
 
-    <!-- Log in page    -->
+    <!-- Log in and register page    -->
+    <string name="loginAppName">The best App</string>
+
+    <string name="getEmail">Enter your email</string>
+        <string name="fakeEmail">JhonDoe@Hotmail.com</string>
+
+    <string name="getPassword">Enter your password</string>
+        <string name="fakePass">carrotSauce</string>
+
+    <string name="getName">Enter your name</string>
+        <string name="fakeName">jhon doe</string>
 
 
     <!--    Food Stuff -->
