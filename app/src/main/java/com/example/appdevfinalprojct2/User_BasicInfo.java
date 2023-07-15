@@ -118,7 +118,6 @@ public class User_BasicInfo extends AppCompatActivity {
         // load values from memory into the fields.
         getUserInfo();
 
-        
         // event listenders to make the app auto save
         age.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -196,17 +195,20 @@ public class User_BasicInfo extends AppCompatActivity {
         weightChoice.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    saveNewItem("more_weight",String.valueOf(isChecked) );
+                if(!isChecked){ // not "put on weight"
+                    changeThisPageAutoSaves("less weight");
+                    saveNewItem("less_weight",String.valueOf(isChecked) );
                 }else{
-                    saveNewItem("more_weight",String.valueOf(isChecked) );
+                    changeThisPageAutoSaves("more weight");
+                    saveNewItem("less_weight",String.valueOf(isChecked) );
                 }
-
-
-
             }
         });
-
+        // incase the button isent check i can save something
+        if(weightChoice.isChecked()== false){
+            changeThisPageAutoSaves("more weight");
+            saveNewItem("less_weight",String.valueOf(false) );
+        }
 
 
         //        //navigation section.

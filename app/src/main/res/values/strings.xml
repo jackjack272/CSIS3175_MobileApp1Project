@@ -71,6 +71,14 @@
     <string name="letsGetBMi">Lets get your BMI</string>
     <string name="calcWeight">Calculate BMI</string>
 
+    <string name="weight_change_week">Weeks </string>
+    <string name="weight_change_timeframe">10</string>
+    <string name="weight_change_amount">lbs </string>
+    <string name="weight_change_weight">25</string>
+
+
+
+
     <!--            Work Out Card body area        -->
     <string-array name="workout_body_parts">
         <item>Arms Of Steel</item>
