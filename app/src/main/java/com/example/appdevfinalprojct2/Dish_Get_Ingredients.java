@@ -1,13 +1,17 @@
 package com.example.appdevfinalprojct2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class Dish_Get_Ingredients extends AppCompatActivity {
 //
@@ -24,9 +28,11 @@ public class Dish_Get_Ingredients extends AppCompatActivity {
     private static String TAG = Dish_Get_Ingredients.class.getSimpleName();
 
 
+    TextView yummy;
     private Button button;
     private EditText foodRestriction, foodCountryStyle, ing1, ing2, ing3, ing4;
     //ingredient
+
 
 
 
@@ -45,6 +51,22 @@ public class Dish_Get_Ingredients extends AppCompatActivity {
         ing3 = findViewById(R.id.ingredient3);
         ing4 = findViewById(R.id.ingredient4);
         button= findViewById(R.id.chef_it_up);
+        yummy= findViewById(R.id.textView11);
+
+//        SharedPreferences preferences= getSharedPreferences("user_info", Context.MODE_PRIVATE);
+//        String loose_weight="";
+//        if(Boolean.valueOf(preferences.getBoolean("less_weight",true))){
+//            loose_weight="loose weight";
+//        }else{
+//            loose_weight="gain weight";
+//        }
+//
+//        yummy.setText("lets get you a yummy meal! with min of "+
+//                String.valueOf(preferences.getFloat("weekly_cals",600))
+//                        + " to help you "+loose_weight );
+
+
+
 
         autoSetTheValuesForDev(); //lil helper util :)
         button.setOnClickListener(new View.OnClickListener() {

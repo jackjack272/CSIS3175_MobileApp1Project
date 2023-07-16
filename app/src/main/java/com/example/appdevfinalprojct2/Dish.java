@@ -1,70 +1,75 @@
 package com.example.appdevfinalprojct2;
 
-import android.util.Log;
+import java.util.List;
 
-import org.json.JSONObject;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Getter
 public class Dish {
 
-    private Integer id;
+    List<Dish_Instruction> dish_instruction_list;
+    Dish_nutrition dish_nutritions;
+    private Long id;
     private String title;
-    private String image;
-    private double calories;
-
-
-    private String sourceUrl;
+    private Double calories;
+    private Boolean vegetarian;
+    private Double serving_size;
     private String summary;
-    private String insuructions;
+    private String dish_image;
+    //make sure to have https not http
+        // might not work otherwise
 
 
-    public Dish(int id, String title, String image, double calories) {
+    public Dish(List<Dish_Instruction> dish_instruction_list, Dish_nutrition dish_nutritions, Long id, String title, Double calories, Boolean vegetarian, Double serving_size, String summary, String dish_image) {
+        this.dish_instruction_list = dish_instruction_list;
+        this.dish_nutritions = dish_nutritions;
+        this.id = id;
+        this.title = title;
+        this.calories = calories;
+        this.vegetarian = vegetarian;
+        this.serving_size = serving_size;
+        this.summary = summary;
+        this.dish_image = dish_image;
     }
 
-    public Integer getId() {
+    public List<Dish_Instruction> getDish_instruction_list() {
+        return dish_instruction_list;
+    }
+
+    public Dish_nutrition getDish_nutritions() {
+        return dish_nutritions;
+    }
+
+    public Long getId() {
         return id;
-    }
-
-    public void setSourceUrl(String sourceUrl) {
-        this.sourceUrl = sourceUrl;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public double getCalories() {
+    public Double getCalories() {
         return calories;
     }
 
-    public String getSourceUrl() {
-        return sourceUrl;
+    public Boolean getVegetarian() {
+        return vegetarian;
+    }
+
+    public Double getServing_size() {
+        return serving_size;
     }
 
     public String getSummary() {
         return summary;
     }
 
-    public String getInsuructions() {
-        return insuructions;
+    public String getDish_image() {
+        return dish_image;
     }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public void setInsuructions(String insuructions) {
-        this.insuructions = insuructions;
-    }
-
-
-    //make sure to have https not http
-        // might not work otherwise
-
-
-
 }
 

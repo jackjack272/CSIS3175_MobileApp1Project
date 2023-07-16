@@ -81,7 +81,7 @@ public class Dish_Adapter extends RecyclerView.Adapter<Dish_Adapter.ViewHolder> 
         holder.title.setText(dish.getTitle());
         holder.calories.setText(String.valueOf( dish.getCalories()));// when in doubt make it a string
 
-        Picasso.get().load(dish.getImage()).into(holder.imageView);
+        Picasso.get().load(dish.getDish_image()).into(holder.imageView);
     }
 
     @Override
