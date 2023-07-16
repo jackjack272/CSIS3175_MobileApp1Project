@@ -29,29 +29,29 @@
             android:name=".Workout_ShowExersises"
             android:exported="false" />
         <activity
-            android:name=".RecipeeDisplay"
+            android:name=".Dish_RecipeeDisplay"
             android:exported="false" />
         <activity
-            android:name=".Get_Recipies"
-            android:exported="false">
+            android:name=".Dish_Get_Ingredients"
+            android:exported="true">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+
         </activity>
         <activity
             android:name=".Workout_Bodypart_Exercise_Choice"
-            android:exported="true" >
+            android:exported="false" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
 
         </activity>
         <activity

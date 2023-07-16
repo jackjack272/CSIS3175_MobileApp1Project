@@ -1,10 +1,6 @@
 package com.example.appdevfinalprojct2;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,25 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.lang.ref.ReferenceQueue;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-
-public class Get_Recipies extends AppCompatActivity {
+public class Dish_Get_Ingredients extends AppCompatActivity {
 //
 //    RecyclerView recyclerView;
 //    RecyclerView.LayoutManager layoutManager;
@@ -43,12 +21,14 @@ public class Get_Recipies extends AppCompatActivity {
 
     /// Pretains to the view
 
-    private static String TAG = Get_Recipies.class.getSimpleName();
+    private static String TAG = Dish_Get_Ingredients.class.getSimpleName();
 
 
     private Button button;
     private EditText foodRestriction, foodCountryStyle, ing1, ing2, ing3, ing4;
     //ingredient
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +39,45 @@ public class Get_Recipies extends AppCompatActivity {
 //        Log.v(TAG, "intent is "+parent.getSelectedItem());
 
         foodRestriction = findViewById(R.id.editTextTextPersonName3);
-
         foodCountryStyle = findViewById(R.id.editTextTextPersonName4);
         ing1 = findViewById(R.id.ingredient1);
         ing2 = findViewById(R.id.ingredient2);
         ing3 = findViewById(R.id.ingredient3);
         ing4 = findViewById(R.id.ingredient4);
+        button= findViewById(R.id.chef_it_up);
 
-
+        autoSetTheValuesForDev(); //lil helper util :)
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //validate that there are no empty
+                if(foodRestriction.getText().toString().isEmpty()){
+                    foodRestriction.setHint("Cant be Empty ");
+                    return;
+                }
+                else if (foodCountryStyle.getText().toString().isEmpty()){
+                    foodCountryStyle.setHint("Cant be Empty ");
+                    return;
+
+                }else if (ing1.getText().toString().isEmpty()){
+                    ing1.setHint("Cant be Empty ");
+                    return;
+
+                }else if (ing2.getText().toString().isEmpty() ){
+                    ing2.setHint("Cant be Empty ");
+                    return;
+
+                }else if (ing3.getText().toString().isEmpty() ){
+                    ing3.setHint("Cant be Empty ");
+                    return;
+
+                }else if (ing4.getText().toString().isEmpty()){
+                    ing4.setHint("Cant be Empty ");
+                    return;
+                }
+
+
                 Bundle bundle = new Bundle();
                 bundle.putString("restriction", foodRestriction.getText().toString());
                 bundle.putString("culture", foodCountryStyle.getText().toString());
@@ -79,15 +87,25 @@ public class Get_Recipies extends AppCompatActivity {
                 bundle.putString("ing4", ing4.getText().toString());
 
 
-                Intent intent = new Intent(Get_Recipies.this, RecipeeDisplay.class);
-
+                Intent intent = new Intent(Dish_Get_Ingredients.this, Dish_RecipeeDisplay.class);
                 intent.putExtras(bundle);
-
                 startActivity(intent);
             }
         });
-
     }
+
+    public void autoSetTheValuesForDev(){
+        foodRestriction.setText("vegetarian");
+        foodCountryStyle.setText("Mexcian");
+        ing1.setText("Cellery");
+        ing2.setText("Noodles");
+        ing3.setText("Butter");
+        ing4.setText("noodles");
+    }
+
+
+
+
 }
 
 

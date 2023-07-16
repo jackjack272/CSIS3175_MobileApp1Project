@@ -9,21 +9,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 
-public class RecipeeAdapter extends RecyclerView.Adapter<RecipeeAdapter.ViewHolder> {
+public class Dish_Adapter extends RecyclerView.Adapter<Dish_Adapter.ViewHolder> {
 
     private ArrayList<Dish> dishArrayList;
     private Context context;
 
-    public RecipeeAdapter(ArrayList<Dish> dishArrayList, Context context) {
+    public Dish_Adapter(ArrayList<Dish> dishArrayList, Context context) {
         this.dishArrayList = dishArrayList;
         this.context = context;
     }
@@ -71,14 +69,14 @@ public class RecipeeAdapter extends RecyclerView.Adapter<RecipeeAdapter.ViewHold
 
     @NonNull
     @Override
-    public RecipeeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Dish_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.recipee_card,parent,false);
         ViewHolder viewHolder= new ViewHolder(v);
         return  viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecipeeAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Dish_Adapter.ViewHolder holder, int position) {
         Dish dish = dishArrayList.get(position);
         holder.title.setText(dish.getTitle());
         holder.calories.setText(String.valueOf( dish.getCalories()));// when in doubt make it a string

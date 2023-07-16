@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Get_Recipies">
+    tools:context=".Dish_Get_Ingredients">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toTopOf="parent"></include>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/chef_it_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

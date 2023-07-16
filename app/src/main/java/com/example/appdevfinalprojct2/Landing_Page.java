@@ -59,7 +59,7 @@ public class Landing_Page extends AppCompatActivity {
                         intent= new Intent(Landing_Page.this, Workout_Bodypart_Exercise_Choice.class);
                     }
                     else if(destination.equalsIgnoreCase("Food stuff")){
-                            intent= new Intent(Landing_Page.this, Get_Recipies.class);
+                            intent= new Intent(Landing_Page.this, Dish_Get_Ingredients.class);
                     }
 
                     startActivity(intent);
