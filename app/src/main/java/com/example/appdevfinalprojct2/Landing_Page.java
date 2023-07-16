@@ -56,7 +56,7 @@ public class Landing_Page extends AppCompatActivity {
                     else if(destination.equalsIgnoreCase("BMI Calculator")){
                         intent= new Intent(Landing_Page.this, User_getBMI.class);
                     }else if(destination.equalsIgnoreCase("Workout")){
-                        intent= new Intent(Landing_Page.this, Workout_Excersises.class);
+                        intent= new Intent(Landing_Page.this, Workout_Bodypart_Exercise_Choice.class);
                     }
                     else if(destination.equalsIgnoreCase("Food stuff")){
                             intent= new Intent(Landing_Page.this, Get_Recipies.class);

@@ -277,6 +277,9 @@ public class User_BasicInfo extends AppCompatActivity {
 
         editor.putString(key,value);
         editor.apply();
+        Log.e(TAG, "******************");
+        Log.e(TAG, "USER INFO: saved "+value+" into key "+key+"user_info shared pref");
+
     }
 
     private void changeThisPageAutoSaves(String saved_value){

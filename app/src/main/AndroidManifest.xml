@@ -43,26 +43,36 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".Workout_Excersises"
-            android:exported="false" />
+            android:name=".Workout_Bodypart_Exercise_Choice"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
         <activity
             android:name=".User_getBMI"
-            android:exported="true" >
-                                <intent-filter>
-                                    <action android:name="android.intent.action.MAIN" />
-
-                                    <category android:name="android.intent.category.LAUNCHER" />
-                                </intent-filter>
+            android:exported="false" >
+<!--                <intent-filter>-->
+<!--                    <action android:name="android.intent.action.MAIN" />-->
+<!--    -->
+<!--                    <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                </intent-filter>-->
         </activity>
 
         <activity
             android:name=".Landing_Page"
             android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+<!--                <intent-filter>-->
+<!--                    <action android:name="android.intent.action.MAIN" />-->
+
+<!--                    <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                </intent-filter>-->
 
 
         </activity>

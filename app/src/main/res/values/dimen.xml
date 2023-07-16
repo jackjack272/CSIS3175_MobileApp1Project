@@ -17,4 +17,9 @@
 
 <!--   Converter size -->
     <dimen name="imperial">25dp</dimen>
+
+
+<!--    work out-->
+    <dimen name="HYPE">25sp</dimen>
+
 </resources>

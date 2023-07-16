@@ -42,6 +42,8 @@ public class User_getBMI extends AppCompatActivity {
         //find the fields
 
         SharedPreferences sharedPreferences= getSharedPreferences("user_info", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+
         age=    sharedPreferences.getString("age", "23");
         height= sharedPreferences.getString("height", "6' 1");
         weight= sharedPreferences.getString("weight", "170");
@@ -68,6 +70,13 @@ public class User_getBMI extends AppCompatActivity {
             if(outOfRange.equalsIgnoreCase("super seriously underweight") |
                     outOfRange.equalsIgnoreCase("seriously underweight")  ){
                 bulk_slim="You need to gain weight. ";
+
+                // record that the user needs to gain weight.
+                editor.remove("less_weight");
+                editor.apply();
+                
+                editor.putString("less_weight","false");
+                editor.apply();
             }
 
 
@@ -108,6 +117,7 @@ public class User_getBMI extends AppCompatActivity {
 
 
                 editor.putFloat("weekly_cals",(float) weeklyCaloriesNeeded );
+                editor.apply();
             }
         });
 

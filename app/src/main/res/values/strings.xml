@@ -79,11 +79,28 @@
 
 
 
+
+<!--    work out area BULK-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--   OLD CODE idk if used any where so not gona remore  -->
+
+
     <!--            Work Out Card body area        -->
     <string-array name="workout_body_parts">
         <item>Arms Of Steel</item>
-
     </string-array>
+
 
     <!--            Work Out Card subtext        -->
     <string-array name="workout_subtext">
@@ -99,6 +116,8 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
 
 
 </resources>

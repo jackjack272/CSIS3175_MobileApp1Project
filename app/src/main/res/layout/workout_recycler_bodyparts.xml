@@ -3,22 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
 
-    <include layout="@layout/navigation"
-        android:id="@+id/include">
-    </include>
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_workout"
-        android:layout_width="413dp"
-        android:layout_height="516dp"
+        android:layout_width="395dp"
+        android:layout_height="478dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include"
-        app:layout_constraintVertical_bias="1.0" />
+
+        />
+
+    <TextView
+        android:id="@+id/weight_goals"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginBottom="500dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="@dimen/HYPE"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="384dp"
+        android:layout_height="57dp"
+        android:entries="@array/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="3dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
