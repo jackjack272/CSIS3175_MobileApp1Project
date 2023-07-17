@@ -28,7 +28,7 @@
 
 
     <!--    Food Stuff -->
-    <string name="recipe">lets get you a yummy meal!</string>
+    <string name="recipe">lets get you a yummy VEGETARIAN meal!</string>
     <string name="chef">chef it up!</string>
     <string name="restrictions">Dou have dietary restirctions?</string>
     <string name="vegetarinan">Vegetarian</string>

@@ -23,6 +23,8 @@ public class User_Registration_login extends AppCompatActivity {
     Button button;
     TextView enter_your_name, error_box;
 
+    Boolean _checked;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,7 @@ public class User_Registration_login extends AppCompatActivity {
         register_login_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                _checked=isChecked;
 
                 if ( isChecked){
                     name.setVisibility(View.GONE);
@@ -65,71 +68,99 @@ public class User_Registration_login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // see if they are logging in or registering....
-                    // logining in need to get the info and see if credentials match
+                // logining in need to get the info and see if credentials match
+
+                if (_checked) { // logging in
+                    // user_info
+//                    editor.putString("user_email", _email);
+//                    editor.putString("user_password", _password);
+
+                    SharedPreferences sharedPreferences= getSharedPreferences( "user_info",Context.MODE_PRIVATE);
+                    sharedPreferences.getString("user_email","null");
+                    sharedPreferences.getString("user_password","null");
+                    if(
+                            email.getText().toString().equals(
+                            sharedPreferences.getString("user_email","null")
+                            )
+                            &&
+                            password.getText().toString().equals(
+                                    sharedPreferences.getString("user_password","null")
+                            )
+                    ){
+                        //start intent
+                        Intent intent= new Intent(User_Registration_login.this, Landing_Page.class);
+                        startActivity(intent);
+                    }else{
+                        error_box.setText("Email or password is wrong");
+                    }
+
+
+                } else {
 
 
                     //registrations is below
 
-                // validate for empty/null values in the fields.
-                String _email, _password, _name, err_msg="";
-                Boolean logging_in=button.getText().toString().equalsIgnoreCase("log in");
+                    // validate for empty/null values in the fields.
+                    String _email, _password, _name, err_msg = "";
+                    Boolean logging_in = button.getText().toString().equalsIgnoreCase("log in");
 
-                _email=email.getText().toString();
-                _password=password.getText().toString();
-                _name= name.getText().toString();
+                    _email = email.getText().toString();
+                    _password = password.getText().toString();
+                    _name = name.getText().toString();
 
-                if(!_email.contains("@")){
-                    if(_email == "" | _email ==null  | _email.isEmpty() ){
-                        err_msg+=" | Email cant be empty ";
-                    }else{
-                        err_msg+="Email needs to have @";
-                    }
-                }
-
-                if(_password == "" | _password ==null | _password.isEmpty()){
-                    if(logging_in){
-                        err_msg+= " | Password cant be empty";
-
-                    }else if ( _password.equalsIgnoreCase("qwerty") || _password.length() <= 5 ){
-                        err_msg+= " | Password is easy to hack";
-                    }else{
-                        err_msg+= " | Password cant be empty";
-                    }
-
-                }
-
-                        // if the user is logging in they dont need to provide a name.
-                if (! logging_in) {
-                    if(_name =="" || _name ==null  | _name.isEmpty() ){
-                        if (_name.length() <5 ) {
-                            err_msg +=" | Name is too short ";
-                        }else{
-                            err_msg +=" | Name cant be empty ";
+                    if (!_email.contains("@")) {
+                        if (_email == "" | _email == null | _email.isEmpty()) {
+                            err_msg += " | Email cant be empty ";
+                        } else {
+                            err_msg += "Email needs to have @";
                         }
                     }
+
+                    if (_password == "" | _password == null | _password.isEmpty()) {
+                        if (logging_in) {
+                            err_msg += " | Password cant be empty";
+
+                        } else if (_password.equalsIgnoreCase("qwerty") || _password.length() <= 5) {
+                            err_msg += " | Password is easy to hack";
+                        } else {
+                            err_msg += " | Password cant be empty";
+                        }
+
+                    }
+
+                    // if the user is logging in they dont need to provide a name.
+                    if (!logging_in) {
+                        if (_name == "" || _name == null | _name.isEmpty()) {
+                            if (_name.length() < 5) {
+                                err_msg += " | Name is too short ";
+                            } else {
+                                err_msg += " | Name cant be empty ";
+                            }
+                        }
+                    }
+
+                    // display error messages and return else
+                    if (err_msg != "") {
+                        error_box.setVisibility(View.VISIBLE);
+                        error_box.setText(err_msg);
+                        return;
+                    } else {
+                        error_box.setText("Awsome corrections :)");
+                    }
+
+                    // save the values in shared preferences.
+                    SharedPreferences sharedPreferences = getSharedPreferences("user_info", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("user_email", _email);
+                    editor.putString("user_password", _password);
+                    editor.putString("user_name", _name);
+                    editor.apply();
+
+                    // send to landing page.
+                    Intent intent = new Intent(User_Registration_login.this, Landing_Page.class);
+                    startActivity(intent);
                 }
-
-                // display error messages and return else
-                if (err_msg != ""){
-                    error_box.setVisibility(View.VISIBLE);
-                    error_box.setText(err_msg);
-                    return;
-                }else{
-                    error_box.setText("Awsome corrections :)");
-                }
-
-                // save the values in shared preferences.
-                SharedPreferences sharedPreferences= getSharedPreferences("user_info", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor= sharedPreferences.edit();
-
-                editor.putString("user_email", _email);
-                editor.putString("user_password",_password);
-                editor.putString("user_name", _name);
-                editor.apply();
-
-                // send to landing page.
-                Intent intent= new Intent(User_Registration_login.this, Landing_Page.class);
-                startActivity(intent);
             }
         });
 
