@@ -16,7 +16,6 @@ public class Dish {
     List<Dish_Ingredient> dish_ingredients;
     Dish_nutrition dish_nutritions;
 
-
     private Long id;
     private String title;
     private Double calories;

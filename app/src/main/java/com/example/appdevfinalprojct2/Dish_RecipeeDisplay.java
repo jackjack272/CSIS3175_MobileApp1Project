@@ -31,7 +31,7 @@ public class Dish_RecipeeDisplay extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     private RequestQueue requestQueue;
-    private List<Dish> dishArrayList;
+    private List<Dish> allTheDishes;
     // api call components
 
     @Override
@@ -76,20 +76,176 @@ public class Dish_RecipeeDisplay extends AppCompatActivity {
 
 
         requestQueue = VollySingolton.getInstance(this).getRequestQueue();
-        dishArrayList = new ArrayList<>();
+        allTheDishes = new ArrayList<Dish>();
 
         getRecipee(
-                getTheURL( culture,restriction , 6,
+                getTheURL( culture,restriction , 1,
                         weeklyCals,1500,ing1,ing2, ing3, ing4 )
-        );
+        ); // change back the number of dishes the user request returns
+
     }
 
 
 
-    private void getRecipee(String url ) {
+    private void getRecipee(String url){
+
         JsonObjectRequest apiToSpoonacular= new JsonObjectRequest(Request.Method.GET, url,
                 null, response -> {
+
+            try{
+                if(response == null){
+                    throw new Exception("ran out of API calls for today :(");
+                }
+
+                    JSONArray all_dishes=response.getJSONArray("results");
+
+                // dish related stuff
+                    Long id;
+                    String title, image, summary, dish_image;
+                    Boolean vegetarian;
+                    Double  serving_size;
+
+                //nutrition related stuff
+                    Double calories, fat, saturated_fat, carbs, sugar, sodium, protine, fiber;
+
+                //dish ingredients list
+                    String name, unit;
+                    Double amount;
+                    List<Dish_Ingredient> all_ingredients= new ArrayList<Dish_Ingredient>();
+
+                //dish instruction set
+                    List<Dish_Instruction> instruction_set= new ArrayList<Dish_Instruction>();
+                    int step_number;
+                    String step_instruction;
+
+
+                // Dish calss holding the subclasses and thier info
+
+
+
+                    for(int i=0; i <all_dishes.length(); i++){
+                        JSONObject oneDish= all_dishes.getJSONObject(i);
+
+                        Log.e(TAG, "******** oneDish holds ******");
+
+                        //dish related stuff
+                        vegetarian= oneDish.getBoolean("vegetarian");
+                        id= oneDish.getLong("id");
+                        title= oneDish.getString("title");
+                        image= oneDish.getString("image");
+                        serving_size= (double) oneDish.getInt("servings");
+                        summary= oneDish.getString("summary");
+
+                        Log.e(TAG,"vegetarian"+ String.valueOf(vegetarian) );
+                        Log.e(TAG,"id "+ String.valueOf(id) );
+                        Log.e(TAG,"title "+ String.valueOf(title) );
+                        Log.e(TAG,"image "+ String.valueOf(image) );
+                        Log.e(TAG,"serving size "+ String.valueOf(serving_size) );
+                        Log.e(TAG,"summary "+ String.valueOf(summary) );
+
+                        //nutrition
+                        JSONArray oneDishNutrients= oneDish.getJSONObject("nutrition").getJSONArray("nutrients");
+                        calories= oneDishNutrients.getJSONObject(0).getDouble("amount");
+                        fat= oneDishNutrients.getJSONObject(1).getDouble("amount");
+                        saturated_fat= oneDishNutrients.getJSONObject(2).getDouble("amount");
+                        carbs= oneDishNutrients.getJSONObject(3).getDouble("amount");
+                        sugar= oneDishNutrients.getJSONObject(4).getDouble("amount");
+                        sodium= oneDishNutrients.getJSONObject(6).getDouble("amount");
+                        protine= oneDishNutrients.getJSONObject(7).getDouble("amount");
+                        fiber= oneDishNutrients.getJSONObject(8).getDouble("amount");
+                        Dish_nutrition dish_nutrition = new Dish_nutrition(calories,fat,saturated_fat,
+                                carbs,sugar,sodium,protine,fiber);
+
+                        Log.e(TAG, "******** Nutrients for this dish ******");
+                        Log.e(TAG,"calories: "+ String.valueOf(calories) );
+                        Log.e(TAG,"fat "+ String.valueOf(fat) );
+                        Log.e(TAG,"saturated fat "+ String.valueOf(saturated_fat) );
+                        Log.e(TAG,"carbs "+ String.valueOf(carbs) );
+                        Log.e(TAG,"sugar: "+ String.valueOf(sugar) );
+                        Log.e(TAG,"sodium: "+ String.valueOf(sodium) );
+                        Log.e(TAG,"protine "+ String.valueOf(protine) );
+                        Log.e(TAG,"fiber: "+ String.valueOf(fiber) );
+                        Log.e(TAG,"     .    " );
+
+
+
+                        //ingredients
+                        JSONArray ingredientList= oneDish.getJSONObject("nutrition").getJSONArray("ingredients");
+                        Log.e(TAG,"****** INGREDIENT LIST*******");
+                        for(int j=0; j<ingredientList.length(); j++){
+                            name=ingredientList.getJSONObject(j).getString("name");
+                            unit=ingredientList.getJSONObject(j).getString("unit");
+                            amount=ingredientList.getJSONObject(j).getDouble("amount");
+
+                            Log.e(TAG,"name: "+ String.valueOf(name) );
+                            Log.e(TAG,"unit: "+ String.valueOf(unit) );
+                            Log.e(TAG,"amount: "+ String.valueOf(amount) );
+                            Log.e(TAG,"   .  ");
+
+                            all_ingredients.add(new Dish_Ingredient(name, unit, amount));
+                        }
+
+
+                        // instructions
+                        Log.e(TAG,"----------Instructions are-----------" );
+
+                        JSONArray instructions=  oneDish.getJSONArray("analyzedInstructions")
+                                .getJSONObject(0).getJSONArray("steps");
+                        for(int j=0; j<instructions.length(); j++){
+                            step_number=instructions.getJSONObject(j).getInt("number");
+                            step_instruction=instructions.getJSONObject(j).getString("step");
+
+                            Log.e(TAG,"step number : "+ String.valueOf(step_number) );
+                            Log.e(TAG,"step instruction : "+ String.valueOf(step_instruction) );
+                            Log.e(TAG,"    .  "+ String.valueOf(step_instruction) );
+
+                            instruction_set.add(new Dish_Instruction(step_number, step_instruction));
+                        }
+                        Log.e(TAG,"Instructions are : "+ String.valueOf(instructions) );
+
+                        allTheDishes.add(
+                                new Dish(
+                                        instruction_set, all_ingredients, dish_nutrition,
+                                        id, title, calories, vegetarian, serving_size, summary, image
+                                )
+                        );
+
+                        Log.e(TAG, "******** END OF oneDish holds ******");
+                        Log.e(TAG, "       ");
+                        Log.e(TAG, "       ");
+                        Log.e(TAG, "       ");
+                    }
+
+
+
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        requestQueue.add(apiToSpoonacular);
+    }
+
+    private void getRecipeeOld(String url ) {
+        JsonObjectRequest apiToSpoonacular= new JsonObjectRequest(Request.Method.GET, url,
+                null, response -> {
+
+
             try {
+                if(response == null ){
+                    throw new Exception("ran out of api calls for today " );
+
+                }
+
 
                 Boolean isVegetarian;
                 String dishTitle, dishCredit, summayrHowToMake, dishImage;
@@ -111,10 +267,6 @@ public class Dish_RecipeeDisplay extends AppCompatActivity {
                     Log.e(TAG, String.valueOf( one_dish));
 
                     JSONArray stepsToMakeDish= one_dish.getJSONObject("analyzedInstructions").getJSONArray("steps");
-                    Log.e(TAG,"************** 1.start ***************");
-                    Log.e(TAG,"************** 1.start ***************");
-                    Log.e(TAG,"************** 1.start ***************");
-                    Log.e(TAG,"************** 1.start ***************");
 
                     for( int i=0; i<stepsToMakeDish.length(); i++){
                         all_dish_instructions.add(
