@@ -80,7 +80,7 @@ public class Dish_RecipeeDisplay extends AppCompatActivity {
 
 
         getRecipee(
-                getTheURL( culture,restriction , 1,
+                getTheURL( culture,restriction , 6,
                         weeklyCals,1500,ing1,ing2, ing3, ing4 )
         ); // change back the number of dishes the user request returns
 
