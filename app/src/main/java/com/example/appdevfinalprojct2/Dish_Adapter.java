@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.squareup.picasso.Picasso;
 
@@ -39,6 +40,7 @@ public class Dish_Adapter extends RecyclerView.Adapter<Dish_Adapter.ViewHolder> 
             imageView= view.findViewById(R.id.food_image);
             title=view.findViewById(R.id.food_title);
             calories= view.findViewById(R.id.food_calories);
+            description= view.findViewById(R.id.food_description);
 
             // set on click listender to send to next view with api request to details on the recipee
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -49,19 +51,6 @@ public class Dish_Adapter extends RecyclerView.Adapter<Dish_Adapter.ViewHolder> 
 //                                    Snackbar.LENGTH_LONG).setAction("Action", null)
 //                            .show();
                     //https://stackoverflow.com/questions/28767413/how-to-open-a-different-activity-on-recyclerview-item-onclick
-
-
-                    if(position == 0 ){
-                        // take the dishArrayList[position].getId();
-                        // intent( bundle.putExtras(id ))
-                        // on that page call the api
-                        return;
-
-                    }
-                    Intent intent= new Intent(context , Landing_Page.class);
-
-
-
                 }});
         }
         
@@ -80,6 +69,7 @@ public class Dish_Adapter extends RecyclerView.Adapter<Dish_Adapter.ViewHolder> 
         Dish dish = dishArrayList.get(position);
         holder.title.setText(dish.getTitle());
         holder.calories.setText(String.valueOf( dish.getCalories()));// when in doubt make it a string
+        holder.description.setText(String.valueOf(dish.getCalories()));
 
         Picasso.get().load(dish.getDish_image()).into(holder.imageView);
     }

@@ -68,15 +68,16 @@ public class Dish_RecipeeDisplay extends AppCompatActivity {
 
 
 
-    // the recycler view area
-//        // on click send to another page with intent and do api call and display on that page.
-//        recyclerView = findViewById(R.id.recipee_destination);
-//        layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
+        // the recycler view area
+        // on click send to another page with intent and do api call and display on that page.
+        recyclerView = findViewById(R.id.recipee_destination);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
 
         requestQueue = VollySingolton.getInstance(this).getRequestQueue();
         allTheDishes = new ArrayList<Dish>();
+
 
         getRecipee(
                 getTheURL( culture,restriction , 1,
@@ -222,6 +223,9 @@ public class Dish_RecipeeDisplay extends AppCompatActivity {
             }catch (Exception e){
                 e.printStackTrace();
             }
+
+            Dish_Adapter adapter= new Dish_Adapter((ArrayList<Dish>) allTheDishes, Dish_RecipeeDisplay.this);
+            recyclerView.setAdapter(adapter);
 
 
 
