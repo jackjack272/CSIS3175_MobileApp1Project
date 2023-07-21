@@ -4,4 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Workout_Bodypart_Exercise_Choice"/>
+    tools:context=".workout.Workout_Bodypart_Exercise_Choice"/>

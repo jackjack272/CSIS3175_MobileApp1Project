@@ -1,10 +1,6 @@
-package com.example.appdevfinalprojct2;
+package com.example.appdevfinalprojct2.Dish;
 
 import java.util.List;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 //@AllArgsConstructor
 //@NoArgsConstructor

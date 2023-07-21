@@ -1,14 +1,11 @@
-package com.example.appdevfinalprojct2;
+package com.example.appdevfinalprojct2.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.SharedElementCallback;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -21,22 +18,25 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import kotlin.jvm.internal.Ref;
+import com.example.appdevfinalprojct2.Dish.Dish_Get_Ingredients;
+import com.example.appdevfinalprojct2.Landing_Page;
+import com.example.appdevfinalprojct2.R;
+import com.example.appdevfinalprojct2.workout.Workout_Bodypart_Exercise_Choice;
 
 public class User_BasicInfo extends AppCompatActivity {
 
-    private Boolean changePage=false;
     private static final String TAG= User_BasicInfo.class.getSimpleName();
-    Spinner spinner ;
+    private Spinner spinner ;
+    private Boolean changePage=false;
     //Navigation
 
 
-    Switch weightChoice;
-    EditText age, height, lbs,  weight_convert_imperial, height_convert_imperial,
+    private Switch weightChoice;
+    private EditText age, height, lbs,  weight_convert_imperial, height_convert_imperial,
         weight_destination, height_destination;
 
-    TextView this_page_autosaves;
-    Button button;
+    private TextView this_page_autosaves;
+    private Button button;
     // this page's content
 
 
@@ -211,44 +211,48 @@ public class User_BasicInfo extends AppCompatActivity {
         }
 
 
-        //        //navigation section.
-//        //----------------- Navigation need on all pages-------
-//        spinner = findViewById(R.id.nav_user_basicInfo);
-//        ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(getApplicationContext(),
-//                R.array.navigation, android.R.layout.simple_spinner_dropdown_item );
-//        spinner.setAdapter(adapter);
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Log.v(TAG, "intent is "+parent.getSelectedItem());
-//
-//
-//                if(changePage){
-//                    Intent intent=null;
-//                    String destination= parent.getSelectedItem().toString();
-//
-//                    if(destination.equalsIgnoreCase("Landing Page")){
-//                        intent= new Intent(Landing_Page.this, Landing_Page.class);
-//                    }
-//                    else if(destination.equalsIgnoreCase("User Basic Info")){
-//                        intent= new Intent(Landing_Page.this, User_BasicInfo.class);
-//                    }
-//                    else if(destination.equalsIgnoreCase("BMI Calculator")){
-//                        intent= new Intent(Landing_Page.this, User_getBMI.class);
-//                    }else if(destination.equalsIgnoreCase("Workout")){
-//                        intent= new Intent(Landing_Page.this, Workout_Excersises.class);
-//                    }
-//                    else if(destination.equalsIgnoreCase("Food stuff")){
-//                        intent= new Intent(Landing_Page.this, Get_Recipies.class);
-//                    }
-//
-//                    startActivity(intent);
-//                }
-//                changePage=true;
-//
-//            }@Override public void onNothingSelected(AdapterView<?> parent) {}
-//        });
-        // ------------------- i am part of the navigation
+
+        setNavigation();
+
+    }
+    public void setNavigation(){
+//        setNavigation();
+
+        //----------------- Navigation need on all pages-------
+        spinner = findViewById(R.id.nav_user_basicInfo);
+        ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(getApplicationContext(),
+                R.array.navigation, android.R.layout.simple_spinner_dropdown_item );
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(changePage){
+                    Intent intent=null;
+                    String destination= parent.getSelectedItem().toString();
+
+                    if(destination.equalsIgnoreCase("Landing Page")){
+                        intent= new Intent(User_BasicInfo.this, Landing_Page.class);
+                    }
+                    else if(destination.equalsIgnoreCase("User Basic Info")){
+                        intent= new Intent(User_BasicInfo.this, User_BasicInfo.class);
+                    }
+                    else if(destination.equalsIgnoreCase("BMI Calculator")){
+                        intent= new Intent(User_BasicInfo.this, User_getBMI.class);
+
+                    }else if(destination.equalsIgnoreCase("Workout")){
+                        intent= new Intent(User_BasicInfo.this, Workout_Bodypart_Exercise_Choice.class);
+                    }
+                    else if(destination.equalsIgnoreCase("Food stuff")){
+                        intent= new Intent(User_BasicInfo.this, Dish_Get_Ingredients.class);
+                    }
+                    startActivity(intent);
+                }
+                changePage=true;
+            }@Override public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+
     }
 
     private void getUserInfo(){
@@ -277,13 +281,13 @@ public class User_BasicInfo extends AppCompatActivity {
 
         editor.putString(key,value);
         editor.apply();
-        Log.e(TAG, "******************");
-        Log.e(TAG, "USER INFO: saved "+value+" into key "+key+"user_info shared pref");
+//        Log.e(TAG, "******************");
+//        Log.e(TAG, "USER INFO: saved "+value+" into key "+key+"user_info shared pref");
 
     }
 
     private void changeThisPageAutoSaves(String saved_value){
-        this_page_autosaves.setText("This page just saved: "+saved_value);
+        this_page_autosaves.setText(" click enter \nThis page just saved: "+saved_value);
     }
 
     private double convertWeight(double lbs){

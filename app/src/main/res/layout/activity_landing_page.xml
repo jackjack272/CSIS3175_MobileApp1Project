@@ -11,32 +11,23 @@
         android:layout_width="337dp"
         android:layout_height="63dp"
         android:layout_marginTop="37dp"
-        android:layout_marginBottom="20dp"
         android:entries="@array/navigation"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="325dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+    <ScrollView
+        android:layout_width="402dp"
+        android:layout_height="502dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:srcCompat="@drawable/sculpting" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="91dp"
-        android:text="@string/insperation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <include layout="@layout/landing_page_motivation">
+
+        </include>
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

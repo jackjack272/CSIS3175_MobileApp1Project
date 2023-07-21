@@ -1,7 +1,6 @@
-package com.example.appdevfinalprojct2;
+package com.example.appdevfinalprojct2.Dish;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import com.example.appdevfinalprojct2.R;
 import com.squareup.picasso.Picasso;
 
 
@@ -33,24 +32,36 @@ public class Dish_Adapter extends RecyclerView.Adapter<Dish_Adapter.ViewHolder> 
         TextView description;
         TextView calories;
 
-        
+
         public ViewHolder(@NonNull View view){
             super(view);
 
             imageView= view.findViewById(R.id.food_image);
             title=view.findViewById(R.id.food_title);
             calories= view.findViewById(R.id.food_calories);
-            description= view.findViewById(R.id.food_description);
+            description= view.findViewById(R.id.food_summary);
 
             // set on click listender to send to next view with api request to details on the recipee
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
+//                    dishArrayList.get(position).
+
+                    //title
+                    // image url
+
+
+
+
 //                    Snackbar.make(v, "click detected on item" + position,
 //                                    Snackbar.LENGTH_LONG).setAction("Action", null)
 //                            .show();
                     //https://stackoverflow.com/questions/28767413/how-to-open-a-different-activity-on-recyclerview-item-onclick
+
+
+
+
                 }});
         }
         
@@ -68,10 +79,22 @@ public class Dish_Adapter extends RecyclerView.Adapter<Dish_Adapter.ViewHolder> 
     public void onBindViewHolder(@NonNull Dish_Adapter.ViewHolder holder, int position) {
         Dish dish = dishArrayList.get(position);
         holder.title.setText(dish.getTitle());
-        holder.calories.setText(String.valueOf( dish.getCalories()));// when in doubt make it a string
-        holder.description.setText(String.valueOf(dish.getSummary()));
 
+        String nutrition="Calories:"+dish.getCalories()+
+                " Fat: "+dish.getDish_nutritions().getFat()+"mg"+
+                "\n Protine: "+dish.getDish_nutritions().getProtine() +"mg"+
+                " Sodium: "+dish.getDish_nutritions().getSodium()+"mg"
+                +"\n Carbs: "+dish.getDish_nutritions().getCarbs() +" mg "
+                +" Fiber: "+dish.getDish_nutritions().getFiber()+"mg";
 
+        holder.calories.setText(( nutrition)) ;// when in doubt make it a string
+
+        String _desc="";
+        for(int x=0 ; x<dish.getDish_instruction_list().size(); x++ ){
+            _desc+=dish.getDish_instruction_list().get(x).getStep_number() +" "+
+                    dish.getDish_instruction_list().get(x).getStep_instruction() +"\n";
+        }
+        holder.description.setText(_desc);
         Picasso.get().load(dish.getDish_image()).into(holder.imageView);
     }
 

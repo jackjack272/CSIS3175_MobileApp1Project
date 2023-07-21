@@ -1,27 +1,37 @@
-package com.example.appdevfinalprojct2;
+package com.example.appdevfinalprojct2.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.concurrent.ExecutionException;
+import com.example.appdevfinalprojct2.Dish.Dish_Get_Ingredients;
+import com.example.appdevfinalprojct2.Landing_Page;
+import com.example.appdevfinalprojct2.R;
+import com.example.appdevfinalprojct2.workout.Workout_Bodypart_Exercise_Choice;
 
 public class User_getBMI extends AppCompatActivity {
 
     private static final String TAG = User_getBMI.class.getSimpleName();
+    private Spinner spinner;
+    private Boolean changePage=false;
 
-    TextView outputField,iWantToLoose , caloryDef;
 
-    EditText weeks, lbs;
-    
-    Button button;
+    private TextView outputField,iWantToLoose , caloryDef;
+
+    private  EditText weeks, lbs;
+
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,10 +131,49 @@ public class User_getBMI extends AppCompatActivity {
             }
         });
 
+        setNavigation();
 
     }
 
+    private void setNavigation(){
+        //----------------- Navigation need on all pages-------
+        spinner = findViewById(R.id.spinner5);
 
+        ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(getApplicationContext(),
+                R.array.navigation, android.R.layout.simple_spinner_dropdown_item );
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // need to reset the selected one by default.
+
+                if(changePage){
+                    Intent intent=null;
+                    String destination= parent.getSelectedItem().toString();
+
+                    if(destination.equalsIgnoreCase("Landing Page")){
+                        intent= new Intent(User_getBMI.this, Landing_Page.class);
+                    }
+                    else if(destination.equalsIgnoreCase("User Basic Info")){
+                        intent= new Intent(User_getBMI.this, User_BasicInfo.class);
+                    }
+                    else if(destination.equalsIgnoreCase("BMI Calculator")){
+                        intent= new Intent(User_getBMI.this, User_getBMI.class);
+                    }else if(destination.equalsIgnoreCase("Workout")){
+                        intent= new Intent(User_getBMI.this, Workout_Bodypart_Exercise_Choice.class);
+                    }
+                    else if(destination.equalsIgnoreCase("Food stuff")){
+                        intent= new Intent(User_getBMI.this, Dish_Get_Ingredients.class);
+                    }
+                    startActivity(intent);
+                }
+                changePage=true;
+
+            }@Override public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+    }
     private double  getWeeklyCalory(String weeks, String lbs){
 
         try{

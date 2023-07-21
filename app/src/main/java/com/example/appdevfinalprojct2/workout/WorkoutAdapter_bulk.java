@@ -1,8 +1,7 @@
-package com.example.appdevfinalprojct2;
+package com.example.appdevfinalprojct2.workout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appdevfinalprojct2.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class WorkoutAdapter_bulk extends RecyclerView.Adapter<WorkoutAdapter_bulk.ViewHolder> {
@@ -94,7 +94,7 @@ public class WorkoutAdapter_bulk extends RecyclerView.Adapter<WorkoutAdapter_bul
                     }
 
                     // if position 1 take me to this work out....
-                    Intent intent= new Intent(v.getContext(),Workout_ShowExersises.class );
+                    Intent intent= new Intent(v.getContext(), Workout_ShowExersises.class );
                     Bundle bundle=new Bundle();
                     bundle.putInt("position",position);
 

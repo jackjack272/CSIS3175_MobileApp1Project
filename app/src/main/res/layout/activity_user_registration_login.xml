@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User_Registration_login">
+    tools:context=".User.User_Registration_login">
 
     <Switch
         android:id="@+id/register"
@@ -143,8 +143,8 @@
 
     <TextView
         android:id="@+id/errors"
-        android:layout_width="366dp"
-        android:layout_height="68dp"
+        android:layout_width="363dp"
+        android:layout_height="49dp"
 
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"

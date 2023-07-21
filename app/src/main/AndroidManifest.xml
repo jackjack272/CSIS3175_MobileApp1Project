@@ -13,78 +13,74 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDevFinalProjct2"
         tools:targetApi="31">
-        <activity
-            android:name=".User_Registration_login"
-            android:exported="false" >
-
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-
-        </activity>
 
         <activity
-            android:name=".Workout_ShowExersises"
-            android:exported="false" />
-        <activity
-            android:name=".Dish_RecipeeDisplay"
-            android:exported="false" />
-        <activity
-            android:name=".Dish_Get_Ingredients"
+            android:name=".User.User_Registration_login"
             android:exported="true">
 
              <intent-filter>
              <action android:name="android.intent.action.MAIN" />
-
-
              <category android:name="android.intent.category.LAUNCHER" />
              </intent-filter>
 
         </activity>
         <activity
-            android:name=".Workout_Bodypart_Exercise_Choice"
-            android:exported="false" >
+            android:name=".workout.Workout_ShowExersises"
+            android:exported="false" />
+        <activity
+            android:name=".Dish.Dish_RecipeeDisplay"
+            android:exported="false" />
+        <activity
+            android:name=".Dish.Dish_Get_Ingredients"
+            android:exported="false">
 
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
-
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
 
+
         </activity>
         <activity
-            android:name=".User_getBMI"
-            android:exported="false" >
-<!--                <intent-filter>-->
-<!--                    <action android:name="android.intent.action.MAIN" />-->
-<!--    -->
-<!--                    <category android:name="android.intent.category.LAUNCHER" />-->
-<!--                </intent-filter>-->
-        </activity>
+            android:name=".workout.Workout_Bodypart_Exercise_Choice"
+            android:exported="false">
 
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
+
+        </activity>
+        <activity
+            android:name=".User.User_getBMI"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!--  -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity
             android:name=".Landing_Page"
             android:exported="false">
 
-<!--                <intent-filter>-->
-<!--                    <action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-<!--                    <category android:name="android.intent.category.LAUNCHER" />-->
-<!--                </intent-filter>-->
 
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
         </activity>
         <activity
-            android:name=".User_BasicInfo"
-            android:exported="false" >
+            android:name=".User.User_BasicInfo"
+            android:exported="false">
 
-<!--                        <intent-filter>-->
-<!--                            <action android:name="android.intent.action.MAIN" />-->
-
-<!--                            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--                        </intent-filter>-->
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
 
         </activity>
     </application>

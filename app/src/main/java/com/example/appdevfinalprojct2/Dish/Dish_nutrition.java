@@ -1,4 +1,4 @@
-package com.example.appdevfinalprojct2;
+package com.example.appdevfinalprojct2.Dish;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

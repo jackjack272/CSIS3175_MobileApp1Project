@@ -10,21 +10,30 @@
         <item>Workout</item>
     </string-array>
 
-
     <!--            Landing Page                 -->
     <string name="insperation">Dont settle </string>
+    <string name="speach">Physical health is the cornerstone of a fulfilling
+        and enriched life. It embodies the art of nurturing our bodies and minds, empowering
+        us to conquer life\'s challenges with vigor and determination.
+        Just as a well-tuned instrument produces mesmerizing melodies,
+        a well-maintained body opens the doors to boundless opportunities. Our bodies are remarkable
+        vessels, intricately woven to withstand the tests of time.
+        Embracing physical health is not merely about chasing an elusive aesthetic;
+        it is a profound commitment to self-care and self-respect.
+
+    </string>
 
     <!-- Log in and register page    -->
     <string name="loginAppName">The best App</string>
 
     <string name="getEmail">Enter your email</string>
-        <string name="fakeEmail">JhonDoe@Hotmail.com</string>
+    <string name="fakeEmail">JhonDoe@Hotmail.com</string>
 
     <string name="getPassword">Enter your password</string>
-        <string name="fakePass">carrotSauce</string>
+    <string name="fakePass">carrotSauce</string>
 
     <string name="getName">Enter your name</string>
-        <string name="fakeName">jhon doe</string>
+    <string name="fakeName">jhon doe</string>
 
 
     <!--    Food Stuff -->
@@ -58,10 +67,9 @@
     <string name="weightinlbs">Enter your weight in lbs(170) </string>
     <string name="weigt_lable">190</string>
 
-            <!-- Imperial to Metric converter    -->
+    <!-- Imperial to Metric converter    -->
     <string name="imperial">Imperial</string>
     <string name="metric">Metric</string>
-
 
 
     <string name="nightMode">Night Mode</string>
@@ -69,7 +77,7 @@
 
     <!--            User BMI        -->
     <string name="letsGetBMi">Lets get your BMI</string>
-    <string name="calcWeight">Calculate BMI</string>
+    <string name="calcWeight">Calculate daily cals</string>
 
     <string name="weight_change_week">Weeks </string>
     <string name="weight_change_timeframe">10</string>
@@ -77,23 +85,10 @@
     <string name="weight_change_weight">25</string>
 
 
+    <!--    work out area BULK-->
 
 
-
-<!--    work out area BULK-->
-
-
-
-
-
-
-
-
-
-
-
-
-<!--   OLD CODE idk if used any where so not gona remore  -->
+    <!--   OLD CODE idk if used any where so not gona remore  -->
 
 
     <!--            Work Out Card body area        -->
@@ -116,8 +111,6 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
-
 
 
 </resources>

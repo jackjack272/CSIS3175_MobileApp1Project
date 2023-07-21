@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbarSize="@dimen/takeWeight"
-    tools:context=".User_BasicInfo">
+    tools:context=".User.User_BasicInfo">
 
     <Switch
         android:id="@+id/switch1"
@@ -95,13 +95,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="0dp"
-        android:layout_height="159dp"
+        android:layout_width="374dp"
+        android:layout_height="166dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
@@ -137,8 +139,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
-                android:hint="@string/weigt_lable" />
+                android:hint="@string/weigt_lable"
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/metric_weight"
@@ -151,7 +153,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <EditText
@@ -160,8 +162,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text"
-                android:hint="@string/hight_hint" />
+                android:hint="@string/hight_hint"
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/metric_heihgt"
@@ -188,6 +190,7 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
         android:text="This page auto saves"
         app:layout_constraintBottom_toTopOf="@+id/logout"
         app:layout_constraintEnd_toEndOf="parent"

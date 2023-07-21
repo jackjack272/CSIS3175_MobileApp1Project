@@ -1,4 +1,4 @@
-package com.example.appdevfinalprojct2;
+package com.example.appdevfinalprojct2.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.appdevfinalprojct2.Landing_Page;
+import com.example.appdevfinalprojct2.R;
+
 public class User_Registration_login extends AppCompatActivity {
     private static final String TAG= User_Registration_login.class.getSimpleName();
 
@@ -23,7 +26,7 @@ public class User_Registration_login extends AppCompatActivity {
     Button button;
     TextView enter_your_name, error_box;
 
-    Boolean _checked;
+    Boolean _checked=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,9 @@ public class User_Registration_login extends AppCompatActivity {
 
         error_box= findViewById(R.id.errors);
             error_box.setVisibility(View.INVISIBLE);
+
+
+        setValues();
 
         // when we load the app the toggle is set to register
         register_login_switch.setChecked(false);
@@ -69,7 +75,6 @@ public class User_Registration_login extends AppCompatActivity {
             public void onClick(View v) {
                 // see if they are logging in or registering....
                 // logining in need to get the info and see if credentials match
-
                 if (_checked) { // logging in
                     // user_info
 //                    editor.putString("user_email", _email);
@@ -90,10 +95,11 @@ public class User_Registration_login extends AppCompatActivity {
                         //start intent
                         Intent intent= new Intent(User_Registration_login.this, Landing_Page.class);
                         startActivity(intent);
+
                     }else{
                         error_box.setText("Email or password is wrong");
+                        error_box.setVisibility(View.VISIBLE);
                     }
-
 
                 } else {
 
@@ -168,4 +174,12 @@ public class User_Registration_login extends AppCompatActivity {
 
 
     }
+
+
+    private void setValues(){
+        email.setText("james@gmail.com");
+        password.setText("carrotSource");
+        name.setText("James Gordon");
+    }
+
 }

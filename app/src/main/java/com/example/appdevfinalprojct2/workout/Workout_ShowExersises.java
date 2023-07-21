@@ -1,4 +1,4 @@
-package com.example.appdevfinalprojct2;
+package com.example.appdevfinalprojct2.workout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.example.appdevfinalprojct2.R;
+import com.example.appdevfinalprojct2.workout.WorkoutAdapter_Back;
+import com.example.appdevfinalprojct2.workout.WorkoutAdapter_Chest;
+import com.example.appdevfinalprojct2.workout.WorkoutAdapter_Core;
+import com.example.appdevfinalprojct2.workout.WorkoutAdapter_Legs;
 
 public class Workout_ShowExersises extends AppCompatActivity {
     RecyclerView recyclerView;
