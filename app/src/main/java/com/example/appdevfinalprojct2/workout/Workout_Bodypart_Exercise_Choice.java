@@ -75,7 +75,6 @@ public class Workout_Bodypart_Exercise_Choice extends AppCompatActivity {
 
 
         setNavigation();
-
     }
 
 

@@ -41,9 +41,6 @@ public class Dish_Get_Ingredients extends AppCompatActivity {
     private EditText foodRestriction, foodCountryStyle, ing1, ing2, ing3, ing4;
     //ingredient
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +55,7 @@ public class Dish_Get_Ingredients extends AppCompatActivity {
         button= findViewById(R.id.chef_it_up);
         yummy= findViewById(R.id.textView11);
 
-        autoSetTheValuesForDev(); //lil helper util :)
+//        autoSetTheValuesForDev(); //lil helper util :)
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +85,6 @@ public class Dish_Get_Ingredients extends AppCompatActivity {
                     ing4.setHint("Cant be Empty ");
                     return;
                 }
-
 
                 Bundle bundle = new Bundle();
                 bundle.putString("restriction", foodRestriction.getText().toString());

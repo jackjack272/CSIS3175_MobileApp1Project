@@ -8,22 +8,15 @@
     >
 
 
-    <include
-        android:id="@+id/include3"
-        layout="@layout/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/workouts"
-        android:layout_width="413dp"
-        android:layout_height="492dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="410dp"
+        android:layout_height="537dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include3" >
+        app:layout_constraintTop_toBottomOf="@+id/workout_creater">
 
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -36,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="82dp" />
+        tools:layout_editor_absoluteY="25dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

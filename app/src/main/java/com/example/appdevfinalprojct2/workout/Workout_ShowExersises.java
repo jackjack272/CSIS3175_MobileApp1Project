@@ -6,24 +6,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.appdevfinalprojct2.Dish.Dish_Get_Ingredients;
+import com.example.appdevfinalprojct2.Landing_Page;
 import com.example.appdevfinalprojct2.R;
+import com.example.appdevfinalprojct2.User.User_BasicInfo;
+import com.example.appdevfinalprojct2.User.User_getBMI;
 import com.example.appdevfinalprojct2.workout.WorkoutAdapter_Back;
 import com.example.appdevfinalprojct2.workout.WorkoutAdapter_Chest;
 import com.example.appdevfinalprojct2.workout.WorkoutAdapter_Core;
 import com.example.appdevfinalprojct2.workout.WorkoutAdapter_Legs;
 
 public class Workout_ShowExersises extends AppCompatActivity {
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
-    RecyclerView.Adapter adapter;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private Boolean changePage=false;
+    private RecyclerView.Adapter adapter;
 // recycler view area
 
 
 
-    Spinner navigation;
+    Spinner spinner;
     TextView heading;
 
 
@@ -36,7 +44,7 @@ public class Workout_ShowExersises extends AppCompatActivity {
         Intent intent= getIntent();
         Bundle bundle= intent.getExtras();
 
-        navigation= findViewById(R.id.spinner2);
+        spinner= findViewById(R.id.spinner2);
         heading= findViewById(R.id.weight_goals);
 
 
@@ -48,13 +56,12 @@ public class Workout_ShowExersises extends AppCompatActivity {
         heading.setText(String.valueOf( position_heading));
 
 
-
-
-
         recyclerView=findViewById(R.id.recycler_workout);
         layoutManager= new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        setNavigation();
     }
 
 
@@ -85,6 +92,46 @@ public class Workout_ShowExersises extends AppCompatActivity {
         }
 
         return choice;
+    }
+
+
+    private void setNavigation(){
+        //----------------- Navigation need on all pages-------
+        spinner = findViewById(R.id.spinner2);
+
+        ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(getApplicationContext(),
+                R.array.navigation, android.R.layout.simple_spinner_dropdown_item );
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // need to reset the selected one by default.
+
+                if(changePage){
+                    Intent intent=null;
+                    String destination= parent.getSelectedItem().toString();
+
+                    if(destination.equalsIgnoreCase("Landing Page")){
+                        intent= new Intent(Workout_ShowExersises.this, Landing_Page.class);
+                    }
+                    else if(destination.equalsIgnoreCase("User Basic Info")){
+                        intent= new Intent(Workout_ShowExersises.this, User_BasicInfo.class);
+                    }
+                    else if(destination.equalsIgnoreCase("BMI Calculator")){
+                        intent= new Intent(Workout_ShowExersises.this, User_getBMI.class);
+                    }else if(destination.equalsIgnoreCase("Workout")){
+                        intent= new Intent(Workout_ShowExersises.this, Workout_Bodypart_Exercise_Choice.class);
+                    }
+                    else if(destination.equalsIgnoreCase("Food stuff")){
+                        intent= new Intent(Workout_ShowExersises.this, Dish_Get_Ingredients.class);
+                    }
+                    startActivity(intent);
+                }
+                changePage=true;
+
+            }@Override public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
     }
 
 }

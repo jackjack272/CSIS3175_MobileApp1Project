@@ -39,7 +39,6 @@ public class User_BasicInfo extends AppCompatActivity {
     private Button button;
     // this page's content
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +65,6 @@ public class User_BasicInfo extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         //Converter
         weight_convert_imperial.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -116,7 +114,8 @@ public class User_BasicInfo extends AppCompatActivity {
         });
 
         // load values from memory into the fields.
-        getUserInfo();
+//        getUserInfo();
+
 
         // event listenders to make the app auto save
         age.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -210,10 +209,7 @@ public class User_BasicInfo extends AppCompatActivity {
             saveNewItem("less_weight",String.valueOf(false) );
         }
 
-
-
         setNavigation();
-
     }
     public void setNavigation(){
 //        setNavigation();
@@ -289,7 +285,6 @@ public class User_BasicInfo extends AppCompatActivity {
     private void changeThisPageAutoSaves(String saved_value){
         this_page_autosaves.setText(" click enter \nThis page just saved: "+saved_value);
     }
-
     private double convertWeight(double lbs){
         return lbs / 2.205;
     }

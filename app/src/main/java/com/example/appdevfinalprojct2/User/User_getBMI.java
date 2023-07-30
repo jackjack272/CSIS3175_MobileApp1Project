@@ -67,7 +67,7 @@ public class User_getBMI extends AppCompatActivity {
 
         String outOfRange=getBMIRangeOutcome( getBMI(age, height, weight ));
 
-        getBMI="A "+age+ " standing at "+height+ " weighing "
+        getBMI="A "+age+ " year old standing at "+height+ " weighing "
                     +weight+" is considered " +outOfRange;
 
         bulk_slim="";
@@ -193,12 +193,12 @@ public class User_getBMI extends AppCompatActivity {
             // broke it down incase i want to return some thing else later on
 
 
-            Log.e(TAG, "*******GET WEEKLY CALS*************");
-            Log.e(TAG, String.valueOf(_weeks));
-            Log.e(TAG, String.valueOf(_lbs));
-            Log.e(TAG, String.valueOf(weekly_lbs));
-            Log.e(TAG, String.valueOf(weekly_calories));
-            Log.e(TAG, String.valueOf(daily_calories));
+//            Log.e(TAG, "*******GET WEEKLY CALS*************");
+//            Log.e(TAG, String.valueOf(_weeks));
+//            Log.e(TAG, String.valueOf(_lbs));
+//            Log.e(TAG, String.valueOf(weekly_lbs));
+//            Log.e(TAG, String.valueOf(weekly_calories));
+//            Log.e(TAG, String.valueOf(daily_calories));
 
 
             return daily_calories;

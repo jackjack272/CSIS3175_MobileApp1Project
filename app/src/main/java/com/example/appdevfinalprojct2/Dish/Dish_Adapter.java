@@ -46,22 +46,11 @@ public class Dish_Adapter extends RecyclerView.Adapter<Dish_Adapter.ViewHolder> 
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-//                    dishArrayList.get(position).
-
-                    //title
-                    // image url
-
-
-
 
 //                    Snackbar.make(v, "click detected on item" + position,
 //                                    Snackbar.LENGTH_LONG).setAction("Action", null)
 //                            .show();
                     //https://stackoverflow.com/questions/28767413/how-to-open-a-different-activity-on-recyclerview-item-onclick
-
-
-
-
                 }});
         }
         

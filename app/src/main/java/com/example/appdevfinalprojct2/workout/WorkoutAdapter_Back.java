@@ -67,8 +67,6 @@ public class WorkoutAdapter_Back extends RecyclerView.Adapter<WorkoutAdapter_Bac
             R.drawable.t_row3,
     };
 
-
-
     public class ViewHolder extends RecyclerView.ViewHolder{
             TextView title, description;
             ImageView workout;
@@ -79,10 +77,6 @@ public class WorkoutAdapter_Back extends RecyclerView.Adapter<WorkoutAdapter_Bac
                 title=itemView.findViewById(R.id.workout_title);
                 description=itemView.findViewById(R.id.workout_subtext);
                 workout= itemView.findViewById(R.id.workout_image);
-
-
-
-
             }
     }
 

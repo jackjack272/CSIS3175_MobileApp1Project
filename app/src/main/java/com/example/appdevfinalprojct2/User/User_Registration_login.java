@@ -67,9 +67,6 @@ public class User_Registration_login extends AppCompatActivity {
                 }
             }
         });
-
-        // button click
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,10 +166,6 @@ public class User_Registration_login extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
     }
 
 
