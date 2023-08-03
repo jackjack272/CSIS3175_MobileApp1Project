@@ -22,9 +22,6 @@ public class Dish {
     //make sure to have https not http
         // might not work otherwise
 
-
-
-
     public Dish(List<Dish_Instruction> dish_instruction_list, List<Dish_Ingredient> dish_ingredients, Dish_nutrition dish_nutritions, Long id, String title, Double calories, Boolean vegetarian, Double serving_size, String summary, String dish_image) {
         this.dish_instruction_list = dish_instruction_list;
         this.dish_ingredients = dish_ingredients;

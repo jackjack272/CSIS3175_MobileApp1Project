@@ -85,6 +85,10 @@ public class Dish_RecipeeDisplay extends AppCompatActivity {
                 null, response -> {
 
             try{
+                if(response.getJSONArray("results").length() ==0){
+                    throw new Exception("no recipe found, try other ingredients");
+                }
+
                 if(response == null){
                     throw new Exception("ran out of API calls for today :(");
                 }
@@ -229,21 +233,21 @@ public class Dish_RecipeeDisplay extends AppCompatActivity {
             String cusineStyle, String diet, int numDishes,float minCals, int maxCals,
             String ingrident1, String ingrident2,  String ingrident3, String ingrident4
     ){
+    String url="https://api.spoonacular.com/recipes/complexSearch?apiKey=3e14d423c5b54657a99a4fa84e8d3905" +
+                "&cuisine=" + cusineStyle+
+                "&diet="+diet+
+                "&includeIngredients="+ingrident1+","+ingrident2+","+ingrident3+","+ingrident4+","+
+                "&minCalories=" +String.valueOf(minCals)+
+                "&maxCalories="+String.valueOf(maxCals)+
+                "&number=" +String.valueOf(numDishes)+
+                "&addRecipeNutrition=true&addRecipeInformation=true&Sort=calories"
+                ;
+        Log.e(TAG, "the URL: "+ String.valueOf(url));
+        return url;
 //      https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java
 //      http://theoryapp.com/parse-json-in-java/
 //      https://stackoverflow.com/questions/1568762/accessing-members-of-items-in-a-jsonarray-with-java
 //      https://api.spoonacular.com/recipes/complexSearch?apiKey=3e14d423c5b54657a99a4fa84e8d3905&cuisine=italian&type=main course&query=potatoe&number=5&addRecipeNutrition=true&addRecipeInformation=true&Sort=calories&minCalories=500&maxCalories=1200
-        String url="https://api.spoonacular.com/recipes/complexSearch?apiKey=3e14d423c5b54657a99a4fa84e8d3905" +
-                "&cuisine=" + cusineStyle+
-                "&diet="+diet+
-                "&includeIngredients="+ingrident1+","+ingrident2+","+ingrident3+","+ingrident4+","+
-                "&minCalories=" +String.valueOf( minCals)+
-                "&maxCalories="+String.valueOf(maxCals)+
-                "&number=" +String.valueOf(numDishes)+
-                "&addRecipeNutrition=true&addRecipeInformation=true&Sort=calories"+
-                "&type='main course'" ;
-        return url;
-
     }
 
 

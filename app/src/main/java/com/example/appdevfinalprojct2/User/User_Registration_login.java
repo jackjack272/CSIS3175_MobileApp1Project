@@ -44,9 +44,8 @@ public class User_Registration_login extends AppCompatActivity {
 
         error_box= findViewById(R.id.errors);
             error_box.setVisibility(View.INVISIBLE);
+//        setValues();
 
-
-        setValues();
 
         // when we load the app the toggle is set to register
         register_login_switch.setChecked(false);
@@ -128,7 +127,6 @@ public class User_Registration_login extends AppCompatActivity {
                         } else {
                             err_msg += " | Password cant be empty";
                         }
-
                     }
 
                     // if the user is logging in they dont need to provide a name.

@@ -21,16 +21,11 @@ import com.example.appdevfinalprojct2.R;
 import com.example.appdevfinalprojct2.workout.Workout_Bodypart_Exercise_Choice;
 
 public class User_getBMI extends AppCompatActivity {
-
     private static final String TAG = User_getBMI.class.getSimpleName();
     private Spinner spinner;
     private Boolean changePage=false;
-
-
     private TextView outputField,iWantToLoose , caloryDef;
-
     private  EditText weeks, lbs;
-
     private Button button;
 
     @Override
@@ -51,72 +46,66 @@ public class User_getBMI extends AppCompatActivity {
         lbs=findViewById(R.id.weight_weight);
         //find the fields
 
+        caloryDef.setVisibility(View.INVISIBLE);
+
+
         SharedPreferences sharedPreferences= getSharedPreferences("user_info", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor= sharedPreferences.edit();
 
         age=    sharedPreferences.getString("age", "23");
         height= sharedPreferences.getString("height", "6' 1");
-        weight= sharedPreferences.getString("weight", "170");
+        weight= sharedPreferences.getString("lbs", "170.32");
         gainWeight= sharedPreferences.getString("less_weight",String.valueOf(false));
         // i use a method to save the user info as a string i dident want to make a
         // different save method  :)
 
-    //get the data from the repo
 
-        caloryDef.setVisibility(View.INVISIBLE);
 
-        String outOfRange=getBMIRangeOutcome( getBMI(age, height, weight ));
+        int bmi=(int) getBMI(height, weight );
+        String outOfRange=getBMIRangeOutcome(bmi);
 
         getBMI="A "+age+ " year old standing at "+height+ " weighing "
-                    +weight+" is considered " +outOfRange;
+                    +weight+" is considered " +outOfRange +"." +
+                "\n BMI:"+bmi;
 
-        bulk_slim="";
         if(gainWeight.equalsIgnoreCase("false")){
-
             bulk_slim="Lets loose some weight "+
                     "according to bmi you should loose: "+getIdealWeight(height, weight) + " lbs";
             // ideal weight.
 
-            if(outOfRange.equalsIgnoreCase("super seriously underweight") |
-                    outOfRange.equalsIgnoreCase("seriously underweight")  ){
+            if((double) bmi <= 18.5){
                 bulk_slim="You need to gain weight. ";
-
                 // record that the user needs to gain weight.
                 editor.remove("less_weight");
                 editor.apply();
-                
+
                 editor.putString("less_weight","false");
                 editor.apply();
             }
-
-
         }else{
-            bulk_slim="Lets gain some weight, you can change this in user info tab";
+            bulk_slim="Lets gain some weight!";
         }
-
         outputField.setText(getBMI);
         iWantToLoose.setText(bulk_slim);
-    //show the messages t the user.
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences sharedPreferences1 = getSharedPreferences("user_info",
                         Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor= sharedPreferences1.edit();
-
 
                 double weeklyCaloriesNeeded=getWeeklyCalory(weeks.getText().toString(), lbs.getText().toString());
+                if(weeklyCaloriesNeeded== -1.0){
+                    weeklyCaloriesNeeded=0;
+                }
+                String weeklyCalories= "To meet your goal you' need to eat daily "+ String.valueOf(weeklyCaloriesNeeded );
 
-                String weeklyCalories= "To meet your goal you' need to eat daily "+
-                        String.valueOf(weeklyCaloriesNeeded );
-
+                String xx=sharedPreferences1.getString("less_weight","false");
 
                 if(sharedPreferences1.getString("less_weight","false")
                         .equalsIgnoreCase("true")){
                     // user want to loose weight.
                     weeklyCalories+=" less calories";
-
                 }else{
                     weeklyCalories+=" more calories";
                 }
@@ -125,14 +114,12 @@ public class User_getBMI extends AppCompatActivity {
                 caloryDef.setText(weeklyCalories);
                 caloryDef.setVisibility(View.VISIBLE);
 
-
+                SharedPreferences.Editor editor= sharedPreferences1.edit();
                 editor.putFloat("weekly_cals",(float) weeklyCaloriesNeeded );
                 editor.apply();
             }
         });
-
         setNavigation();
-
     }
 
     private void setNavigation(){
@@ -192,15 +179,6 @@ public class User_getBMI extends AppCompatActivity {
             double daily_calories=weekly_calories/7;
             // broke it down incase i want to return some thing else later on
 
-
-//            Log.e(TAG, "*******GET WEEKLY CALS*************");
-//            Log.e(TAG, String.valueOf(_weeks));
-//            Log.e(TAG, String.valueOf(_lbs));
-//            Log.e(TAG, String.valueOf(weekly_lbs));
-//            Log.e(TAG, String.valueOf(weekly_calories));
-//            Log.e(TAG, String.valueOf(daily_calories));
-
-
             return daily_calories;
         }catch (Exception e ){
             Log.e(TAG, e.getMessage());
@@ -233,52 +211,52 @@ public class User_getBMI extends AppCompatActivity {
 
     }
 
-    private double getBMI(String age,String height, String weight){
+    private double getBMI(String height, String _weight){
         try{
             String[] feet_inch= height.split("'");
-            double cm=0;
-            cm+= Integer.parseInt(feet_inch[0]) *30.48;
-            cm+= Integer.parseInt(feet_inch[1]) *2.54;
+            double feet=0, inches=0, bmi=0, weight=0;
+            weight=Double.parseDouble(_weight);
+            feet=Integer.valueOf( feet_inch[0]);
+            inches= Integer.parseInt(feet_inch[1]);
+            inches+=feet*12;
 
-
-            double bmi= 703 * (Integer.parseInt( weight )/2.2046) / Math.pow( cm/100,2);
+            bmi= weight/ Math.pow(inches,2)*703;
+            // lbs/  inches^2 *703
 
             return bmi;
         }catch (Exception e){
             Log.v(TAG,"user_getBMI line getBMI() line 167");
-
         }
-
         return -1;
     }
 
-    private String getBMIRangeOutcome(Double x){
+    private String getBMIRangeOutcome(int x){
         String msg="";
-        if(x<15){
-            msg="super seriously underweight";
+
+
+        if(35 <= x | x< 40){
+            msg="verry chunky";
+        }
+        else if(30 <= x | x< 35){
+            msg="little chunky";
+        }
+        else if(25 <= x | x< 30){
+            msg="overweight";
+        }
+        else if(18.5 <= x | x< 25){
+            msg="perfect weight ;)";
+        }
+        else if(16 <= x | x< 18.5){
+            msg="underweight";
         }
         else if(15 <= x | x< 16){
             msg="seriously underweight";
         }
-
-        else if(16 <= x | x< 18.5){
-            msg="underweight";
+        if(x<15){
+            msg="super seriously underweight";
         }
 
-        else if(18.5 <= x | x< 25){
-            msg="perfect weight ;)";
 
-        }
-        else if(25 <= x | x< 30){
-            msg="overweight";
-
-        }else if(30 <= x | x< 35){
-            msg="little chunky";
-
-        }
-        else if(35 <= x | x< 40){
-            msg="verry chunky";
-        }
         return msg;
     }
 

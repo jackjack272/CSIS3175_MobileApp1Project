@@ -194,12 +194,12 @@ public class User_BasicInfo extends AppCompatActivity {
         weightChoice.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!isChecked){ // not "put on weight"
+                if(isChecked){ // not "put on weight"
                     changeThisPageAutoSaves("less weight");
                     saveNewItem("less_weight",String.valueOf(isChecked) );
                 }else{
                     changeThisPageAutoSaves("more weight");
-                    saveNewItem("less_weight",String.valueOf(isChecked) );
+                    saveNewItem("more_weight",String.valueOf(isChecked) );
                 }
             }
         });
@@ -209,6 +209,8 @@ public class User_BasicInfo extends AppCompatActivity {
             saveNewItem("less_weight",String.valueOf(false) );
         }
 
+
+        getUserInfo();
         setNavigation();
     }
     public void setNavigation(){
@@ -247,6 +249,7 @@ public class User_BasicInfo extends AppCompatActivity {
                 changePage=true;
             }@Override public void onNothingSelected(AdapterView<?> parent) {}
         });
+
 
 
     }
